@@ -1,0 +1,22 @@
+{
+  "name": "react-workshop",
+  "version": "1.0.0",
+  "description": "A Workshop For React.js at JSFoo",
+  "main": "index.js",
+  "scripts": {
+    "watch": "watchify client/main.js -o public/app.js -v",
+    "build": "browserify client/main.js -o public/app.js",
+    "start": "npm run watch & nodemon server.js"
+  },
+  "author": "You",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.3.4",
+    "express": "^4.13.3"
+  },
+  "devDependencies": {
+    "browserify": "^11.0.1",
+    "nodemon": "^1.4.1",
+    "watchify": "^3.4.0"
+  }
+}
