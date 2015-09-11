@@ -2,7 +2,7 @@ var React = require("react");
 
 var ChatClient = React.createClass({
   render: function() {
-    return React.createElement("div", {}, "This is awesome!");
+    return <div>Hello, React</div>;
   }
 });
 
