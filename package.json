@@ -18,19 +18,17 @@
   },
   "devDependencies": {
     "browserify": "^11.1.0",
-    "deamdify": "^0.1.1",
     "moment": "^2.10.6",
     "nodemon": "^1.4.1",
     "react": "^0.13.3",
-    "react-templatify": "^0.1.0",
+    "react-templatify": "^0.2.0",
     "reactify": "^1.1.1",
     "watchify": "^3.4.0"
   },
   "browserify": {
     "transform": [
       "reactify",
-      "react-templatify",
-      "deamdify"
+      "react-templatify"
     ]
   }
 }
