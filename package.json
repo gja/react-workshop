@@ -13,21 +13,24 @@
   "dependencies": {
     "body-parser": "^1.13.3",
     "ejs": "^2.3.4",
-    "express": "^4.13.3"
+    "express": "^4.13.3",
+    "lodash": "^3.10.1"
   },
   "devDependencies": {
     "browserify": "^11.1.0",
+    "deamdify": "^0.1.1",
     "moment": "^2.10.6",
     "nodemon": "^1.4.1",
     "react": "^0.13.3",
+    "react-templatify": "^0.1.0",
     "reactify": "^1.1.1",
     "watchify": "^3.4.0"
   },
   "browserify": {
     "transform": [
-      [
-        "reactify"
-      ]
+      "reactify",
+      "react-templatify",
+      "deamdify"
     ]
   }
 }
