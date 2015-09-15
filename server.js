@@ -1,8 +1,6 @@
 var express = require('express');
 var app = express();
 
-var jsApp = require("./public/app.js");
-
 app.use(express.static(__dirname + '/public'));
 var jsonParser = require("body-parser").json();
 
@@ -26,7 +24,7 @@ app.get("/chat", function(req, res) {
     });
   }
 
-  return res.end(JSON.stringify({
+  return res.header("Content-Type", "application/json; charset=utf-8").end(JSON.stringify({
     "time": (new Date).getTime(),
     "chats": chatsToSend
   }));
