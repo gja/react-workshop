@@ -1,6 +1,7 @@
 <rt-require dependency="./todo_item" as="TodoItem"/>
 
 <div>
+  <div>{this.state.tick}</div>
   <div class="todo-list">
     <TodoItem rt-repeat="itemText in this.state.todoItems"
       itemText="{itemText}"

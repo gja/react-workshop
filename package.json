@@ -23,6 +23,8 @@
     "react": "^0.13.3",
     "react-templatify": "^0.2.0",
     "reactify": "^1.1.1",
+    "reflux": "^0.2.12",
+    "superagent": "^1.4.0",
     "watchify": "^3.4.0"
   },
   "browserify": {

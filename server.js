@@ -1,6 +1,8 @@
 var express = require('express');
 var app = express();
 
+var jsApp = require("./public/app.js");
+
 app.use(express.static(__dirname + '/public'));
 var jsonParser = require("body-parser").json();
 
