@@ -1,0 +1,12 @@
+<rt-require dependency="./todo_item" as="TodoItem"/>
+
+<div>
+  <div class="todo-list">
+    <TodoItem rt-repeat="itemText in this.state.todoItems"
+      itemText="{itemText}"
+      key="{itemText}"/>
+  </div>
+  <button class="foobar" onClick="{this.buttonClicked}">
+    Add Item
+  </button>
+</div>

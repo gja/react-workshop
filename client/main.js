@@ -1,26 +1,6 @@
-var React = require("react");
+var React = require("react/addons");
 var _ = require("lodash");
-
-var TodoItem = React.createClass({
-  getInitialState: function() {
-    return {finished: false};
-  },
-
-  itemChecked: function(e) {
-    var checked = e.target.checked;
-    console.debug(checked, this.props.itemText);
-    this.setState({finished: checked});
-  },
-
-  render: function() {
-    return React.createElement("div", {className: "todo-item"},
-      React.createElement("input", {type: "checkbox",
-        onChange: this.itemChecked}),
-      React.createElement("span",
-        {className: this.state.finished ? "done" : ""},
-        this.props.itemText));
-  }
-});
+var ItemsTemplate = require("./items_template.rt");
 
 var ToDoList = React.createClass({
   getInitialState: function() {
@@ -29,23 +9,20 @@ var ToDoList = React.createClass({
     };
   },
 
-  todoItems: function() {
-    return _.map(this.state.todoItems, function(itemText) {
-      return React.createElement(TodoItem, {itemText: itemText})
-    });
-  },
+  render: ItemsTemplate,
 
   buttonClicked: function() {
-    var newItems = this.state.todoItems.concat([window.prompt("item?")]);
-    this.setState({todoItems: newItems});
+    var newItems = [window.prompt("item?")];
+    var newState = React.addons.update(this.state, {
+      todoItems: {$push: newItems}
+    });
+    this.setState(newState);
   },
 
-  render: function() {
-    return React.createElement("div", {},
-      React.createElement("div", {className: "todo-list"},
-        this.todoItems()),
-      React.createElement("button", {onClick: this.buttonClicked},
-        "Add Item"));
+  swapItems: function() {
+    var newItems = [this.state.todoItems[1], this.state.todoItems[0]];
+    this.state.todoItems = newItems;
+    this.setState({todoItems: newItems});
   }
 });
 
