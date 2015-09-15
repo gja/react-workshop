@@ -32,6 +32,8 @@ app.get("/chat", function(req, res) {
   }));
 });
 
+//  curl -vX POST "http://localhost:3000/chat" -H "Content-Type: application/json" -d '{"chat": {"user": "abhinav", "text": "cool"}}'
+
 app.post("/chat", jsonParser, function(req, res) {
   var chat = req.body["chat"];
   if(!chat)
